@@ -45,6 +45,13 @@ public class KautotuKud implements Initializable {
         }
     }
 
+    @FXML
+    void onClickEzabatu(ActionEvent event) {
+        String zerbitzua = (String) comboZerbitzua.getValue();
+        ZerbitzuKud.getInstance().zerbitzuaEzabatu(zerbitzua);
+        this.eguneratu();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<String> herrialdeakList = ZerbitzuKud.getInstance().lortuZerbitzuak();
@@ -53,5 +60,8 @@ public class KautotuKud implements Initializable {
         comboZerbitzua.setItems( herrialdeak );
 
     }
-
+    public void eguneratu(){
+        ObservableList<String> zerbitzuak = comboZerbitzua.getItems();
+        zerbitzuak.remove(comboZerbitzua.getValue());
+    }
 }

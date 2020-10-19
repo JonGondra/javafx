@@ -39,4 +39,9 @@ public class ZerbitzuKud {
 
         return emaitza;
     }
+    public void zerbitzuaEzabatu(String zerbitzua) {
+        String query = "delete from services where izena ='" + zerbitzua+"'";
+        DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
+        ResultSet rs = dbKudeatzaile.execSQL(query);
+    }
 }
